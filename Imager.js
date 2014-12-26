@@ -80,6 +80,9 @@
 
                 // Used alongside the lazyload feature (helps performance by setting a higher delay)
                 scrollDelay: Number
+
+                // Use custom placeholders instead of transparent images
+                placeholderImage: '',
             }
 
         @param {object} configuration settings
@@ -109,7 +112,7 @@
         this.selector         = opts.selector || '.delayed-image-load';
         this.className        = opts.className || 'image-replace';
         this.gif              = doc.createElement('img');
-        this.gif.src          = 'data:image/gif;base64,R0lGODlhEAAJAIAAAP///wAAACH5BAEAAAAALAAAAAAQAAkAAAIKhI+py+0Po5yUFQA7';
+        this.gif.src          = opts.placeholderImage || 'data:image/gif;base64,R0lGODlhEAAJAIAAAP///wAAACH5BAEAAAAALAAAAAAQAAkAAAIKhI+py+0Po5yUFQA7';
         this.gif.className    = this.className;
         this.gif.alt          = '';
         this.lazyloadOffset   = opts.lazyloadOffset || 0;
